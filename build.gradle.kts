@@ -12,6 +12,7 @@ java.sourceCompatibility = JavaVersion.VERSION_12
 
 repositories {
 	mavenCentral()
+	jcenter()
 	maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
 }
 
@@ -27,9 +28,11 @@ dependencies {
     implementation("io.vertx:vertx-web:+")
 }
 
-
-application.mainClassName="io.vertx.core.Launcher"
-val mainVerticleName="vcell.Vcell"
+val mainClassName = "io.vertx.core.Launcher"
+val mainVerticleName = "vcell.Vcell"
+val watchForChange = "src/**/*"
+val doOnChange = "./gradlew classes"
+application.mainClassName = mainClassName
 
 tasks.shadowJar {
 	classifier = "fat"
@@ -47,6 +50,10 @@ tasks.withType<KotlinCompile> {
 		jvmTarget = "12"
 	}
 }
+
+//tasks.run {
+//  args = ["run", mainVerticleName, "--redeploy=$watchForChange", "--launcher-class=$mainClassName", "--on-redeploy=$doOnChange"]
+//}
 
 // gradle wrapper --gradle-version 5.6.3 --distribution-type all
 
