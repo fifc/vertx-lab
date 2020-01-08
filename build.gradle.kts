@@ -8,11 +8,11 @@ plugins {
 }
 
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_12
+java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
-	mavenCentral()
 	jcenter()
+	mavenCentral()
 	maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
 }
 
@@ -29,7 +29,7 @@ dependencies {
 }
 
 val mainClassName = "io.vertx.core.Launcher"
-val mainVerticleName = "vcell.Vcell"
+val mainVerticleName = "vx.Vx"
 val watchForChange = "src/**/*"
 val doOnChange = "./gradlew classes"
 application.mainClassName = mainClassName
@@ -47,7 +47,7 @@ tasks.shadowJar {
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "12"
+		jvmTarget = "11"
 	}
 }
 
@@ -58,6 +58,6 @@ tasks.withType<KotlinCompile> {
 // gradle wrapper --gradle-version 5.6.3 --distribution-type all
 
 tasks.wrapper {
-    gradleVersion = "6.1-rc-1"
+    gradleVersion = "6.1-rc-2"
     distributionType = Wrapper.DistributionType.ALL
 }

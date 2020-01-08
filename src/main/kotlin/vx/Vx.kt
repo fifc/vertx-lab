@@ -1,4 +1,4 @@
-package vcell
+package vx
 
 import io.vertx.ext.web.Router
 import io.vertx.ext.web.RoutingContext
@@ -7,7 +7,7 @@ import io.vertx.core.http.HttpServerResponse
 import io.vertx.kotlin.core.json.*
 import io.vertx.core.Vertx
 
-class Vcell : io.vertx.core.AbstractVerticle()  {
+class Vx : io.vertx.core.AbstractVerticle()  {
 	var products = mutableMapOf<String, Any?>()
 	fun addProduct(product: io.vertx.core.json.JsonObject) {
 		products[product.getString("id")] = product
@@ -16,7 +16,7 @@ class Vcell : io.vertx.core.AbstractVerticle()  {
 	fun setUpInitialData() {
 		addProduct(json {
 			obj(
-				"id" to "prod3568",
+				"id" to "1",
 				"name" to "Egg Whisk",
 				"price" to 3.99,
 				"weight" to 150
@@ -24,7 +24,7 @@ class Vcell : io.vertx.core.AbstractVerticle()  {
 		})
 		addProduct(json {
 			obj(
-				"id" to "prod7340",
+				"id" to "2",
 				"name" to "Tea Cosy",
 				"price" to 5.99,
 				"weight" to 100
@@ -32,7 +32,7 @@ class Vcell : io.vertx.core.AbstractVerticle()  {
 		})
 		addProduct(json {
 			obj(
-				"id" to "prod8643",
+				"id" to "3",
 				"name" to "Spatula",
 				"price" to 1.0,
 				"weight" to 80
@@ -93,9 +93,9 @@ class Vcell : io.vertx.core.AbstractVerticle()  {
 		var router = Router.router(vertx)
 
 		router.route().handler(BodyHandler.create())
-		router.get("/products/:productID").handler({ handleGetProduct(it) })
-		router.put("/products/:productID").handler({ handleAddProduct(it) })
-		router.get("/products").handler({ handleListProducts(it) })
+		router.get("/:productID").handler({ handleGetProduct(it) })
+		router.put("/:productID").handler({ handleAddProduct(it) })
+		router.get("/").handler({ handleListProducts(it) })
 
 		vertx.createHttpServer().requestHandler(router).listen(8080)
 	}
