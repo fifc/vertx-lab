@@ -8,7 +8,7 @@ plugins {
 }
 
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_11
+java.sourceCompatibility = JavaVersion.VERSION_13
 
 repositories {
 	jcenter()
@@ -47,7 +47,7 @@ tasks.shadowJar {
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "11"
+		jvmTarget = "13"
 	}
 }
 
