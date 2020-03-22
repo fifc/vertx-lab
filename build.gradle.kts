@@ -1,10 +1,24 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+buildscript {
+    extra.apply {
+        set("kotlinVersion", "1.3.70")
+        //set("kotlinVersion", "1.4-M1-eap-93")
+    }
+
+    repositories {
+	jcenter()
+	mavenCentral()
+	maven { url = uri("https://dl.bintray.com/kotlin/kotlin-dev/") }
+	maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
+    }
+}
+
 plugins {
     java
     application
-    id("org.jetbrains.kotlin.jvm") version "1.3.70"
-    id("com.github.johnrengelman.shadow") version "5.2.0"
+    id("com.github.johnrengelman.shadow") version("5.2.0")
+    id("org.jetbrains.kotlin.jvm") version("${property("kotlinVersion")}")
 }
 
 version = "0.0.1-SNAPSHOT"
@@ -14,6 +28,7 @@ repositories {
 	jcenter()
 	mavenCentral()
 	maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
+	maven { url = uri("https://dl.bintray.com/kotlin/kotlin-dev/") }
 }
 
 dependencies {
