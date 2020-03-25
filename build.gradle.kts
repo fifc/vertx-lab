@@ -1,5 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+val gradle_version = "6.3"
+
 buildscript {
     extra.apply {
         set("kotlinVersion", "1.3.70")
@@ -73,6 +75,6 @@ tasks.withType<KotlinCompile> {
 // gradle wrapper --gradle-version 5.6.3 --distribution-type all
 
 tasks.wrapper {
-    gradleVersion = "6.3-rc-4"
+    gradleVersion = gradle_version
     distributionType = Wrapper.DistributionType.ALL
 }
