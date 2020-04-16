@@ -1,6 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val gradle_version = "6.3"
+val gradle_version = "6.4-rc-1"
 
 buildscript {
     extra.apply {
@@ -42,6 +42,7 @@ dependencies {
     implementation("io.vertx:vertx-core:+")
     implementation("io.vertx:vertx-lang-kotlin:+")
     implementation("io.vertx:vertx-web:+")
+    implementation("io.vertx:vertx-mqtt:+")
 }
 
 val mainClassName = "io.vertx.core.Launcher"
