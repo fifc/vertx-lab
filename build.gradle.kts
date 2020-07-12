@@ -1,10 +1,11 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val gradle_version = "6.5"
+val gradle_version = "6.6-milestone-3"
 
 buildscript {
     extra.apply {
-        set("kotlinVersion", "1.3.72")
+        //set("kotlinVersion", "1.3.72")
+        set("kotlinVersion", "1.4-M3")
     }
 
     repositories {
@@ -12,6 +13,9 @@ buildscript {
 	mavenCentral()
 	maven { url = uri("https://dl.bintray.com/kotlin/kotlin-dev/") }
 	maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
+	maven ("https://dl.bintray.com/kotlin/kotlin-eap")
+	maven ("https://kotlin.bintray.com/kotlinx")
+
     }
 }
 
@@ -30,6 +34,8 @@ repositories {
 	mavenCentral()
 	maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
 	maven { url = uri("https://dl.bintray.com/kotlin/kotlin-dev/") }
+	maven ("https://dl.bintray.com/kotlin/kotlin-eap")
+	maven ("https://kotlin.bintray.com/kotlinx")
 }
 
 dependencies {
