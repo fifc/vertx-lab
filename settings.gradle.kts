@@ -16,4 +16,4 @@ pluginManagement {
         }
 }
 
-rootProject.name = "vcell"
+rootProject.name = "vxlab"
