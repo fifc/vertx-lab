@@ -4,8 +4,6 @@ val gradle_version = "6.6"
 
 buildscript {
     extra.apply {
-        //set("kotlinVersion", "1.3.72")
-        //set("kotlinVersion", "1.4-M3")
         set("kotlinVersion", "1.4.0-rc")
     }
 
@@ -23,7 +21,7 @@ buildscript {
 plugins {
     java
     application
-    id("com.github.johnrengelman.shadow") version("5.2.0")
+    id("com.github.johnrengelman.shadow") version("6.0.0")
     id("org.jetbrains.kotlin.jvm") version("${property("kotlinVersion")}")
 }
 
