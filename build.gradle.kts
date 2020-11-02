@@ -69,8 +69,8 @@ tasks.shadowJar {
 
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
+		jvmTarget = "15"
 		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "14"
 	}
 }
 
