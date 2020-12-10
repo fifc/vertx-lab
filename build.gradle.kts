@@ -6,6 +6,7 @@ val gradle_version = "6.8-rc-1"
 buildscript {
     extra.apply {
         set("kotlinVersion", "1.4.20-RC")
+        set("kotlinVersion", "1.4.21")
     }
 
     repositories {
