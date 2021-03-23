@@ -1,12 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-//val gradle_version = "6.7.1"
-val gradle_version = "6.8-rc-1"
+val gradle_version = "7.0-rc-1"
 
 buildscript {
     extra.apply {
-        set("kotlinVersion", "1.4.20-RC")
-        set("kotlinVersion", "1.4.21")
+        set("kotlinVersion", "1.5.0-M1")
     }
 
     repositories {
@@ -23,12 +21,12 @@ buildscript {
 plugins {
     java
     application
-    id("com.github.johnrengelman.shadow") version("6.0.0")
+    id("com.github.johnrengelman.shadow") version("6.1.0")
     id("org.jetbrains.kotlin.jvm") version("${property("kotlinVersion")}")
 }
 
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_14
+java.sourceCompatibility = JavaVersion.VERSION_16
 
 repositories {
 	jcenter()
