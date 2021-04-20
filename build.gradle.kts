@@ -4,7 +4,7 @@ val gradle_version = "7.0"
 
 buildscript {
     extra.apply {
-        set("kotlinVersion", "1.5.0-M2")
+        set("kotlinVersion", "1.5.0-RC")
     }
 
     repositories {
@@ -14,7 +14,6 @@ buildscript {
 	maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
 	maven ("https://dl.bintray.com/kotlin/kotlin-eap")
 	maven ("https://kotlin.bintray.com/kotlinx")
-
     }
 }
 
